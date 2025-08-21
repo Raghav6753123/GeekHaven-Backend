@@ -16,6 +16,9 @@ app.use(e.urlencoded({ extended: true }));
 app.use("/api/auth", Authrouter);
 app.use("/api/ques",QuestionRouter);
 const uri = process.env.MONGO_URI;
+app.use("/",()=>{
+    console.log("Backend running");
+})
 mongoose.connect(uri).then(async () => {
     console.log("MongoDB Connected");
 
