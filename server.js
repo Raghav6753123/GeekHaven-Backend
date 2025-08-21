@@ -8,8 +8,12 @@ const app = e()
 dotenv.config()
 const PORT = process.env.PORT || 3000;
 app.use(cors({
-    origin:"http://localhost:5173/",
-    Credential:true
+  origin: [
+    "http://localhost:5173", 
+    "https://geekhave.netlify.app"  
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 app.use(e.json());
 app.use(e.urlencoded({ extended: true }));
